@@ -16,7 +16,7 @@ pymc                  : 5.3.1
 ```
 
 # Usage
-0. Import
+### 1. Import
 ```
 
 import pandas as pd
@@ -40,12 +40,12 @@ from utils.model import * ### this import BIMig
 
 ```
 
-2. Read test data
+### 2. Read test data
 ```
 data = pd.read_csv('test.csv')
 ```
 
-3. Modeling
+### 3. Modeling
 ```
 bimig = BIMig()
 model = bimig.Make_model(data) ### it reads the "DOY" and "occ" columns
@@ -57,22 +57,34 @@ with model:
     
     
 ```
-4. Diagnostic
+### 4. Diagnostic
 ```
 az.plot_trace(idata)
 plt.tight_layout()
 plt.show()
 
-
-p_, cdf_ = bimig.predict(idata, data)
-bimig.plot_prediction(p_, data)
-
 ```
 
-5. 
+### 5. Ploting
+```
+p_, cdf_ = bimig.predict(idata, data)
+bimig.plot_prediction(p_, data)
+```
+![fig1](/assets/fig1.png)
 
+```
+bimig.plot_midpoint(idata)
+```
+![fig2](/assets/fig2.png)
 
+```
+bimig.plot_mean_mid_and_sigma(idata)
+```
+![fig3](/assets/fig3.png)
 
+### 6. Ouput data
+
+All data are stored in the idata samples. Check it out.
 
 
 
