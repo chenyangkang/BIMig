@@ -49,11 +49,9 @@ data = pd.read_csv('test.csv')
 ```
 bimig = BIMig()
 model = bimig.Make_model(data) ### it reads the "DOY" and "occ" columns
-# idata = bimig.sample_model(model)
 
 with model:
     idata = pmjax.sample_numpyro_nuts(1000,tune=1000, chains=1, cores=1)
-    # 
     
     
 ```
