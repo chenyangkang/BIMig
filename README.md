@@ -42,13 +42,15 @@ from utils.model import * ### this import BIMig
 
 ### 2. Read test data
 ```
-data = pd.read_csv('test.csv')
+data = pd.read_csv('/data/test.csv')
 ```
 
 ### 3. Modeling
 ```
 bimig = BIMig()
-model = bimig.Make_model(data) ### it reads the "DOY" and "occ" columns
+model = bimig.Make_model(data, occ='Golden-crowned Kinglet') 
+### it reads the "DOY" and occ columns, 
+### you can change the occ to any species column. Including wintering, breeding and passengers.
 
 with model:
     idata = pmjax.sample_numpyro_nuts(1000,tune=1000, chains=1, cores=1)
