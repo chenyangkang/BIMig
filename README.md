@@ -1,6 +1,9 @@
 # BIMig
 Bayesian Inference of Animal Migration Phenology and Confounding Effect
 
+# Notice
+This package is under developement and should not be used for now.
+
 # Prerequisite packages
 ```
 jax                   : 0.3.23
